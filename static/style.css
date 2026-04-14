@@ -1,20 +1,25 @@
 body {
   margin: 0;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: #0f172a;
   color: white;
+  overflow-x: hidden;
 }
 
+/* APP */
 .app {
   display: flex;
+  animation: fadeIn 0.6s ease;
 }
 
 /* SIDEBAR */
 .sidebar {
   width: 220px;
-  background: #020617;
+  background: rgba(2,6,23,0.8);
+  backdrop-filter: blur(10px);
   height: 100vh;
   padding: 20px;
+  border-right: 1px solid #1e293b;
 }
 
 .sidebar h2 {
@@ -31,12 +36,13 @@ body {
   color: white;
   text-align: left;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 .sidebar button:hover {
   background: #1e293b;
   border-radius: 8px;
+  transform: translateX(5px);
 }
 
 /* MAIN */
@@ -58,13 +64,15 @@ body {
   color: white;
 }
 
-/* CARD */
+/* CARD (GLASS EFFECT) */
 .card {
-  background: linear-gradient(145deg, #1e293b, #0f172a);
+  background: rgba(30,41,59,0.6);
+  backdrop-filter: blur(12px);
   padding: 25px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
   width: 600px;
+  animation: slideUp 0.5s ease;
 }
 
 /* INPUT */
@@ -77,6 +85,13 @@ input {
   border: 1px solid #334155;
   color: white;
   border-radius: 8px;
+  transition: 0.3s;
+}
+
+input:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 10px rgba(99,102,241,0.6);
 }
 
 /* BUTTON */
@@ -86,7 +101,7 @@ button {
   border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.3s;
 }
 
 button:hover {
@@ -94,11 +109,16 @@ button:hover {
   opacity: 0.9;
 }
 
+/* MAIN BUTTON (WOW EFFECT) */
 .main-btn {
   background: linear-gradient(135deg, #3b82f6, #6366f1);
   color: white;
   font-weight: bold;
-  box-shadow: 0 5px 20px rgba(99,102,241,0.4);
+  box-shadow: 0 5px 25px rgba(99,102,241,0.5);
+}
+
+.main-btn:hover {
+  box-shadow: 0 10px 40px rgba(99,102,241,0.8);
 }
 
 /* TABLE */
@@ -114,7 +134,30 @@ table {
 }
 
 .stat {
-  background: #1e293b;
+  background: rgba(30,41,59,0.6);
   padding: 15px 20px;
   border-radius: 12px;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.stat:hover {
+  transform: scale(1.05);
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
