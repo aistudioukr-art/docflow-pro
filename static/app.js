@@ -1,43 +1,22 @@
-function addRow() {
-  const table = document.getElementById("table");
-  const row = table.insertRow();
+function showPage(page) {
+  document.getElementById("generator").style.display = "none";
+  document.getElementById("history").style.display = "none";
 
-  for (let i = 0; i < 3; i++) {
-    const cell = row.insertCell();
-    const input = document.createElement("input");
-    cell.appendChild(input);
-  }
+  document.getElementById(page).style.display = "block";
 }
 
-async function generate() {
-  const rows = [];
-  const table = document.getElementById("table");
+async function loadHistory() {
+  const user = document.getElementById("login").value;
 
-  for (let i = 1; i < table.rows.length; i++) {
-    const cells = table.rows[i].cells;
+  const res = await fetch(`/history/${user}`);
+  const data = await res.json();
 
-    rows.push({
-      container: cells[0].children[0].value,
-      weight: cells[1].children[0].value,
-      expiry: cells[2].children[0].value
-    });
-  }
+  const div = document.getElementById("historyList");
+  div.innerHTML = "";
 
-  const res = await fetch("/generate", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({
-      sender: document.getElementById("sender").value,
-      consignee: document.getElementById("consignee").value,
-      rows
-    })
+  data.forEach(d => {
+    const el = document.createElement("div");
+    el.innerText = d.file;
+    div.appendChild(el);
   });
-
-  const blob = await res.blob();
-  const url = URL.createObjectURL(blob);
-
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "certificates.zip";
-  a.click();
 }
