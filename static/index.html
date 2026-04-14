@@ -6,21 +6,48 @@
 </head>
 <body>
 
-<h1>🚀 DocFlow Pro</h1>
+<div class="app">
 
-<input id="sender" placeholder="Відправник">
-<input id="consignee" placeholder="Отримувач">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
+    <h2>🚀 DocFlow</h2>
+    <button onclick="showPage('generator')">📄 Генерація</button>
+    <button onclick="showPage('history')">📁 Історія</button>
+  </div>
 
-<table id="table">
-<tr>
-  <th>Контейнер</th>
-  <th>Вага</th>
-  <th>Дата</th>
-</tr>
-</table>
+  <!-- MAIN -->
+  <div class="main">
 
-<button onclick="addRow()">+ Додати</button>
-<button onclick="generate()">🚀 Згенерувати</button>
+    <!-- GENERATOR -->
+    <div id="generator" class="page">
+      <h1>Генерація сертифікатів</h1>
+
+      <div class="card">
+        <input id="sender" placeholder="Відправник">
+        <input id="consignee" placeholder="Отримувач">
+      </div>
+
+      <table id="table">
+        <tr>
+          <th>Контейнер</th>
+          <th>Вага</th>
+          <th>Дата</th>
+        </tr>
+      </table>
+
+      <button onclick="addRow()">+ Додати рядок</button>
+      <button class="main-btn" onclick="generate()">🚀 Згенерувати</button>
+    </div>
+
+    <!-- HISTORY -->
+    <div id="history" class="page" style="display:none;">
+      <h1>Історія</h1>
+      <div id="historyList"></div>
+    </div>
+
+  </div>
+
+</div>
 
 <script src="app.js"></script>
 </body>
