@@ -1,11 +1,67 @@
 body {
+  margin: 0;
+  font-family: sans-serif;
   background: #0f172a;
   color: white;
-  font-family: sans-serif;
-  text-align: center;
+}
+
+.app {
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  background: #020617;
+  height: 100vh;
+  padding: 20px;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.sidebar button {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  background: none;
+  border: none;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.main {
+  flex: 1;
+  padding: 30px;
+}
+
+.card {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
 }
 
 input {
-  margin: 5px;
+  display: block;
+  margin: 10px 0;
   padding: 10px;
+  width: 300px;
+}
+
+button {
+  margin: 10px 5px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+}
+
+.main-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+table {
+  margin-top: 20px;
 }
