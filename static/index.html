@@ -13,7 +13,6 @@
   <!-- SIDEBAR -->
   <div class="sidebar">
     <h2>🚀 DocFlow</h2>
-
     <button onclick="showPage('generator')">📄 Генерація</button>
     <button onclick="showPage('history')">📁 Історія</button>
   </div>
@@ -21,14 +20,20 @@
   <!-- MAIN -->
   <div class="main">
 
-    <!-- GENERATOR PAGE -->
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <div>👋 Вітаю</div>
+      <button class="logout">Вийти</button>
+    </div>
+
+    <!-- GENERATOR -->
     <div id="generator" class="page">
 
       <h1>Генерація сертифікатів</h1>
 
       <!-- STATS -->
       <div class="stats">
-        <div class="stat">📄 Документи</div>
+        <div class="stat">📄 124 документів</div>
         <div class="stat">⚡ Автоматизація</div>
       </div>
 
@@ -47,13 +52,12 @@
         </tr>
       </table>
 
-      <!-- BUTTONS -->
       <button onclick="addRow()">+ Додати рядок</button>
       <button class="main-btn" onclick="generate()">🚀 Згенерувати</button>
 
     </div>
 
-    <!-- HISTORY PAGE -->
+    <!-- HISTORY -->
     <div id="history" class="page" style="display:none;">
       <h1>Історія</h1>
       <div id="historyList"></div>
