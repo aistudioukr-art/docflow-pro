@@ -1,12 +1,11 @@
-<div class="stats">
-  <div class="stat">📄 124 документів</div>
-  <div class="stat">👤 3 користувача</div>
-</div><!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="uk">
 <head>
+  <meta charset="UTF-8">
   <title>DocFlow Pro</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <div class="app">
@@ -14,6 +13,7 @@
   <!-- SIDEBAR -->
   <div class="sidebar">
     <h2>🚀 DocFlow</h2>
+
     <button onclick="showPage('generator')">📄 Генерація</button>
     <button onclick="showPage('history')">📁 Історія</button>
   </div>
@@ -21,15 +21,24 @@
   <!-- MAIN -->
   <div class="main">
 
-    <!-- GENERATOR -->
+    <!-- GENERATOR PAGE -->
     <div id="generator" class="page">
+
       <h1>Генерація сертифікатів</h1>
 
+      <!-- STATS -->
+      <div class="stats">
+        <div class="stat">📄 Документи</div>
+        <div class="stat">⚡ Автоматизація</div>
+      </div>
+
+      <!-- FORM -->
       <div class="card">
         <input id="sender" placeholder="Відправник">
         <input id="consignee" placeholder="Отримувач">
       </div>
 
+      <!-- TABLE -->
       <table id="table">
         <tr>
           <th>Контейнер</th>
@@ -38,11 +47,13 @@
         </tr>
       </table>
 
+      <!-- BUTTONS -->
       <button onclick="addRow()">+ Додати рядок</button>
       <button class="main-btn" onclick="generate()">🚀 Згенерувати</button>
+
     </div>
 
-    <!-- HISTORY -->
+    <!-- HISTORY PAGE -->
     <div id="history" class="page" style="display:none;">
       <h1>Історія</h1>
       <div id="historyList"></div>
@@ -53,5 +64,6 @@
 </div>
 
 <script src="app.js"></script>
+
 </body>
 </html>
